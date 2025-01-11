@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio - Shankara Shaktananda - Guhai Swami</title>
+    <!-- Replace the existing styles in the head section -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Replace the existing nav section with -->
+    <div class="stars-layer"></div>
+    <button class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav>
+      <a href="index.html">Introduction</a>
+      <a href="media-gallery.html">Media Gallery</a>
+      <a href="discourses.html">Discourses</a>
+    </nav>
+
+    <!-- Add before closing body tag -->
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.querySelector("nav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+          nav.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Introduction</a>
+      <a href="media-gallery.html">Media Gallery</a>
+      <a href="discourses.html">Discourses</a>
+    </nav>
+
+    <div class="banner">
+      <div class="banner-content">
+        <img
+          src="assets/img/India_settentrionale,_saptamatrika,_X_sec.jpeg"
+          alt="By I, Sailko, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=12403454"
+          class="banner-image"
+        />
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Audio Library</h1>
+      <div class="carousel-container">
+        <button class="carousel-button prev">❮</button>
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <h3>Discourse 1</h3>
+              <a
+                href=""
+                target="_blank"
+              >
+                <img src="assets/img/disc1_dp.jpg" alt="tbd" />
+                <span class="album-title">Discourse 1</span>
+              </a>
+              <p class="audio-description">TBD</p>
+            </div>
+            <div class="carousel-slide">
+              <h3>Discourse 2</h3>
+              <a
+                href=""
+                target="_blank"
+              >
+                <img src="assets/img/disc2_dp.jpg" alt="tbd" />
+                <span class="album-title">Discourse 2</span>
+              </a>
+              <p class="audio-description">TBD</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <h3>Discourse 3</h3>
+            <a
+              href=""
+              target="_blank"
+            >
+              <img src="assets/img/disc3_dp.jpg" alt="tbd" />
+              <span class="album-title">Discourse 3</span>
+            </a>
+            <p class="audio-description">TBD</p>
+          </div>
+        </div>
+        <button class="carousel-button next">❯</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const track = document.querySelector(".carousel-track");
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector(".next");
+        const prevButton = document.querySelector(".prev");
+
+        let currentIndex = 0;
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        // Position slides next to each other
+        slides.forEach((slide, index) => {
+          slide.style.left = slideWidth * index + "px";
+        });
+
+        // Set initial slide as current
+        slides[0].classList.add("current-slide");
+
+        const moveToSlide = (currentSlide, targetSlide) => {
+          track.style.transform = "translateX(-" + targetSlide.style.left + ")";
+          currentSlide.classList.remove("current-slide");
+          targetSlide.classList.add("current-slide");
+        };
+
+        nextButton.addEventListener("click", () => {
+          const currentSlide = track.querySelector(".current-slide");
+          const nextSlide = currentSlide.nextElementSibling;
+          if (nextSlide) {
+            moveToSlide(currentSlide, nextSlide);
+          }
+        });
+
+        prevButton.addEventListener("click", () => {
+          const currentSlide = track.querySelector(".current-slide");
+          const prevSlide = currentSlide.previousElementSibling;
+          if (prevSlide) {
+            moveToSlide(currentSlide, prevSlide);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

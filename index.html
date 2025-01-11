@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Shaktam.org</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <body>
+    <div class="stars-layer"></div>
+    <button class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav>
+      <a href="index.html"><i class="fas fa-home"></i><span>Introduction</span></a>
+      <a href="media-gallery.html"><i class="fas fa-images"></i><span>Media Gallery</span></a>
+      <a href="discourses.html"><i class="fas fa-book"></i><span>Discourses</span></a>
+    </nav>
+
+    <div class="banner">
+      <div class="banner-content">
+        <img
+          src="assets/img/India_settentrionale,_saptamatrika,_X_sec.jpeg"
+          alt="By I, Sailko, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=12403454"
+          class="banner-image"
+        />
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="hero">
+        <img
+          src="assets/img/ss-standing.jpg"
+          alt="Swamigal Picture"
+          class="hero-image"
+        />
+        <div class="hero-text">
+          <h2>Welcome to Shaktam.org</h2>
+          <p>
+            Shaktam or Shaktism (/ˈsæktɪzəm/; Sanskrit: शाक्तसम्प्रदायः,
+            romanized: Śāktasampradāyaḥ) is a major Hindu denomination in which
+            the deity or metaphysical reality is considered metaphorically to be
+            a woman.
+          </p>
+        </br>
+          <p>
+            Śāktasampradāyaḥ involves a galaxy of goddesses, all being regarded as
+            different aspects, manifestations, or personifications of the divine
+            feminine energy called Shakti. It consists of various modes of worship,
+            ranging from those focused on the most worshipped Durga, to gracious
+            Parvati, and the fierce Kali. The most common forms of
+            the Devis worshipped in Shaktism include: Durga, Kali, Saraswati,
+            Lakshmi, Parvati, and Maha Tripurasundari.
+          </p>
+        </div>
+        <img />
+      </div>
+      <!-- @TODO: @ytee pls add some background, content and stotras here-->
+      <h2>About the Margam</h2>
+      <p>
+        <b>SriKulam</b>
+        TBD
+      </p>
+      <p>
+        
+        <b>KaliKulam</b>
+        TBD
+      </p>
+    </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.querySelector("nav");
+
+      // Hamburger menu for mobile
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+          nav.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
